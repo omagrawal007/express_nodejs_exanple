@@ -1,0 +1,28 @@
+<div class="container" ng-init="getUserList()">
+
+
+	<div class="row" style="margin-top:2%;margin-bottom:2%;"><button class="btn btn-primary" ng-click="adduser();">Add User</button> </div>
+	<div class="row">
+
+		<table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="userList in userLists">
+        <td>{{userList.name}}</td>
+        <td>{{userList.mobile}}</td>
+        <td>{{userList.email}}</td>
+        <td><span ng-if="userList.status==1">Active</span><span ng-if="userList.status==2">Inactive</span></td>
+        <td><button  class="btn btn-danger" ng-click="updateUserInfo(userList);">edit</button>&nbsp&nbsp<button sref="view" class="btn btn-primary" ng-click="showViewUser(userList)">view</button></td>
+      </tr>
+    </tbody>
+  </table>
+	</div>
+</div>

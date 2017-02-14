@@ -1,0 +1,77 @@
+      
+
+      <div class="modal-header">
+        <h3 class="modal-title">Update User</h3>
+      </div>
+       <form ng-submit="updateInfo(userupdate.id)" name="userUpdateInfo" novalidate>
+      <div class="modal-body">
+        
+			<div class="form-group">
+				<label for="name">Name:</label>
+				<input type="text" name="username" class="form-control" id="name" ng-model="userupdate.name" ng-minlength="2" ng-maxlength="30"  ng-required="true">
+
+				<!-- show an error if username is too short -->
+   				 <p ng-show="userUpdateInfo.username.$error.minlength">Username is too short.</p>
+
+    			<!-- show an error if username is too long -->
+    			<p ng-show="userUpdateInfo.username.$error.maxlength">Username is too long.</p>
+
+    			<!-- show an error if this isn't filled in -->
+    			<p ng-show="userUpdateInfo.username.$error.required">Your username is required.</p>
+
+
+
+			</div>
+			<div class="form-group">
+				<label for="mobile">Mobile</label>
+				<input type="number" name="mobile" id="mobile" class="form-control" ng-model="userupdate.mobile" ng-minlength="10" ng-required="true">
+
+				<!-- show an error if mobile is too short -->
+   				 <p ng-show="userUpdateInfo.mobile.$error.minlength">Mobile Number is too short.</p>
+
+    			<!-- show an error if this isn't filled in -->
+    			<p ng-show="userUpdateInfo.mobile.$error.required">Mobile Number is required.</p>
+
+
+			</div>
+
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email" class="form-control" ng-model="userupdate.email" ng-required="true">
+
+				<!-- show an error if email is valid -->
+   				 <p ng-show="userUpdateInfo.email.$invalid">Enter Correct Email Id.</p>
+
+    			<!-- show an error if this isn't filled in -->
+    			<p ng-show="userUpdateInfo.email.$error.required">Email is required.</p>
+
+			</div>
+
+			<div class="form-group">
+				<label for="status">Status</label>
+				<select class="form-control" name="status" ng-model="userupdate.status" ng-required="true">
+					<option value="1">Active</option>
+					<option value="2">Inactive</option>
+				</select>
+				<p ng-show="userUpdateInfo.status.$error.required">Status is required.</p>
+			</div>
+
+			<div class="form-group">
+				<label for="address">Address</label>
+
+				<textarea class="form-control" name="address" ng-model="userupdate.adress" ng-maxlength="50" ></textarea>
+				
+
+				<!-- show an error if address is too long -->
+    			<p ng-show="userUpdateInfo.address.$error.maxlength">Address is too long.</p>
+			</div>
+			
+      		</div>
+      		<div class="modal-footer">
+      	<input type="submit" class="btn btn-primary" value="Update" ng-disabled="userUpdateInfo.$invalid"
+      	  />
+      	
+        <!-- <button class="btn btn-primary" type="button" ng-click="closeUpdatePopup()">Close</button> -->
+      </div>
+  		</form>
+      
