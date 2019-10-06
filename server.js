@@ -8,16 +8,19 @@ var path=require('path');
 	// console.log(path.join(__dirname+'/views/'));
 	app.use(express.static(path.join(__dirname+'/views/')));
 	
-var userApp=require('./controller/controller.js')(app,path);
+// var userApp=require('./controller/controller.js')(app,path);
 
 
 
 
-
+app.get('/',function(req,res){
+		
+	res.sendFile(path.join(__dirname+'/../views/index.html'));
+});
 
 
 app.listen('3000',function(){
 
-	console.log("localhost:3000");
+	console.log("localhost:3008");
 
 });
